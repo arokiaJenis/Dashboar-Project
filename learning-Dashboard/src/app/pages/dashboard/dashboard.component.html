@@ -1,0 +1,145 @@
+<div class="dashboard">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+
+    <h2>Dashboard</h2>
+
+    <div class="top-controls">
+
+      <div class="period-toggle">
+        <button>Monthly</button>
+        <button>Quarterly</button>
+      </div>
+
+      <div class="date-range">
+        01 Jan, 2024 - 31 Dec 2024
+      </div>
+
+      <select>
+        <option>All District</option>
+        <option>Ariyulur</option>
+        <option>Chennai</option>
+        <option>Coimbatore</option>
+        <option>Madurai</option>
+      </select>
+
+    </div>
+    <button class="theme-btn" (click)="toggleTheme()">
+  Toggle Theme
+</button>
+
+  </div>
+  <!-- KPI CARDS -->
+<div class="kpi-container">
+
+  <div class="kpi-card">
+    <p>Total Learners Enrolled</p>
+    <h2>{{ summary?.totalLearners }}</h2>
+  </div>
+
+  <div class="kpi-card">
+    <p>Male</p>
+    <h2>{{ summary?.male }}</h2>
+  </div>
+
+  <div class="kpi-card">
+    <p>Female</p>
+    <h2>{{ summary?.female }}</h2>
+  </div>
+
+  <div class="kpi-card">
+    <p>Others</p>
+    <h2>{{ summary?.others }}</h2>
+  </div>
+
+  <div class="kpi-card">
+    <p>Active Learners</p>
+    <h2 class="green">{{ summary?.activeLearners }}</h2>
+  </div>
+
+  <div class="kpi-card">
+    <p>Engaged Learners</p>
+    <h2 class="orange">{{ summary?.engagedLearners }}</h2>
+  </div>
+
+</div>
+<!-- ROW 1 -->
+<div class="grid-2">
+
+  <!-- Course Progress -->
+  <div class="chart-card">
+    <h3>Course progress rate</h3>
+
+    <ng-container *ngIf="courseChartData">
+      <canvas
+        baseChart
+        [data]="courseChartData"
+        [options]="courseChartOptions"
+        [type]="'bar'">
+      </canvas>
+    </ng-container>
+  </div>
+
+  <!-- Pass Percentage -->
+  <div class="chart-card">
+    <h3>Pass Percentage</h3>
+
+    <ng-container *ngIf="passChartData">
+      <canvas
+        baseChart
+        [data]="passChartData"
+        [options]="passChartOptions"
+        [type]="'bar'">
+      </canvas>
+    </ng-container>
+  </div>
+
+</div>
+
+<!-- ROW 2 -->
+<div class="grid-2">
+
+  <!-- Average Assessment -->
+  <div class="chart-card">
+    <h3>Average Assessment Score</h3>
+
+    <ng-container *ngIf="donutChartData">
+      <canvas
+        baseChart
+        [data]="donutChartData"
+        [options]="donutChartOptions"
+        [type]="'doughnut'">
+      </canvas>
+    </ng-container>
+  </div>
+
+  <!-- Learners Breakdown -->
+  <div class="chart-card">
+    <h3>Learners Details Breakdown</h3>
+
+    <ng-container *ngIf="gradeChartData">
+      <canvas
+        baseChart
+        [data]="gradeChartData"
+        [options]="gradeChartOptions"
+        [type]="'pie'">
+      </canvas>
+    </ng-container>
+  </div>
+
+</div>
+
+<!-- DISTRICT RANKING -->
+<div class="chart-card">
+  <h3>District Ranking</h3>
+
+  <div class="ranking-row" *ngIf="districtRanking">
+    <div class="rank-card" *ngFor="let d of districtRanking.districts">
+      <p>{{ d.district }}</p>
+      <h4>#{{ d.rank }}</h4>
+      <h5>rank</h5>
+    </div>
+  </div>
+</div>
+

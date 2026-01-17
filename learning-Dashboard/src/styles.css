@@ -1,0 +1,24 @@
+/* LIGHT THEME (DEFAULT) */
+:root {
+  --bg: #f5f6fa;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --muted-text: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* DARK THEME */
+.dark-theme {
+  --bg: #0f172a;
+  --card-bg: #020617;
+  --text: #e5e7eb;
+  --muted-text: #94a3b8;
+  --border: #1e293b;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
