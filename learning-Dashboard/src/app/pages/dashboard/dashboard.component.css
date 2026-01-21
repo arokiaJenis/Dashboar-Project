@@ -1,15 +1,10 @@
-/* =======================
-   DASHBOARD BASE
-======================= */
+
 .dashboard {
   padding: 24px;
   background: var(--bg);
   min-height: 100vh;
 }
 
-/* =======================
-   TOP BAR
-======================= */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -41,9 +36,6 @@ select,
   cursor: pointer;
 }
 
-/* =======================
-   KPI CARDS
-======================= */
 .kpi-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -78,15 +70,15 @@ select,
   color: var(--orange);
 }
 
-/* =======================
-   CHART CARDS
-======================= */
 .chart-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 20px;
+}
+.chart-card p{
+  color: white;
 }
 
 .chart-card h3 {
@@ -111,9 +103,7 @@ select,
 }
 
 
-/* =======================
-   GRID LAYOUT FOR CHARTS
-======================= */
+
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -121,9 +111,7 @@ select,
   margin-bottom: 20px;
 }
 
-/* =======================
-   DISTRICT RANKING
-======================= */
+
 .ranking-row {
   display: flex;
   gap: 12px;
@@ -179,7 +167,11 @@ select,
 .rank-card p {
   margin: 0;
   font-size: 12px;
-  color: var(--muted);
+}
+.rank-card h5 {
+  margin: 0;
+  font-size: 12px;
+  color: white;
 }
 
 .rank-card h4 {

@@ -16,13 +16,14 @@
         01 Jan, 2024 - 31 Dec 2024
       </div>
 
-      <select>
-        <option>All District</option>
-        <option>Ariyulur</option>
-        <option>Chennai</option>
-        <option>Coimbatore</option>
-        <option>Madurai</option>
-      </select>
+<select (change)="onDistrictChange($event)">
+  <option value="ALL">All District</option>
+  <option *ngFor="let d of districtList" [value]="d">
+    {{ d }}
+  </option>
+</select>
+
+
 
     </div>
     <button class="theme-btn" (click)="toggleTheme()">
@@ -138,7 +139,7 @@
     <div class="rank-card" *ngFor="let d of districtRanking.districts">
       <p>{{ d.district }}</p>
       <h4>#{{ d.rank }}</h4>
-      <h5>rank</h5>
+      <h5>Rank</h5>
     </div>
   </div>
 </div>
